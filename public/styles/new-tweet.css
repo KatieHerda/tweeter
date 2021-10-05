@@ -17,12 +17,14 @@ button {
 }
 
 #tweet-text {
+  box-sizing: border-box;
   border-top: none;
   border-left: none;
   border-right: none;
   border-bottom: 2px solid #545149;
   background-color: #f4f1ec;
   resize: none;
+  height: 1.5em;
 }
 
 form div {

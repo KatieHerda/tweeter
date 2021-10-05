@@ -9,10 +9,17 @@ form {
   border: none;
 }
 
+form div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+  font-family: "Bungee", cursive;
+}
+
 button {
   background-color: hsl(226, 43%, 44%);
   color: white;
-  font-family: 'Bungee', cursive;
   border-radius: 3px;
 }
 
@@ -21,16 +28,10 @@ button {
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: 2px solid #545149;
+  border-bottom: 3px solid #545149;
   background-color: #f4f1ec;
   resize: none;
   height: 1.5em;
 }
 
-form div {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 20px;
-  font-family: "Bungee", cursive;
-}
+

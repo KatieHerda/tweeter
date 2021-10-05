@@ -7,8 +7,18 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
 
+    <!-- Added Bungee Font Style-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">  
+
+    <!-- Font Awesome Arrows -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav.css" type="text/css">
+    <link rel="stylesheet" href="styles/header.css" type="text/css">
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -20,10 +30,35 @@
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span>tweeter</span>
+        <a id="tweet-logo" href="tweeter-logo">tweeter</a>
+        <div class="new-tweet-right">
+          <a href="write-tweet"><b>Write</b> a new tweet</a>
+          <span><i class="fas fa-angle-double-down"></i></span>
+        </div>
     </nav>
+    
+    <!-- Header -->
+    <header>
+      <div>
+          <img src="/images/profile-hex.png"> 
+      </div>
+      <br>
+      <div class="name">
+          <p><b>Katie</b> Herda<p>
+      </div>
+  </header>
 
     <!-- Page-specific (main) content here -->
-    <main class="container"></main>
+    <main class="container">
+      <div>
+        <h3>About Tweeter App</h3>
+      
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id diam vel quam elementum pulvinar etiam non quam. Duis at tellus at urna condimentum mattis. Congue quisque egestas diam in arcu cursus euismod quis viverra. Lobortis mattis aliquam faucibus purus in massa tempor nec. Neque aliquam vestibulum morbi blandit. In aliquam sem fringilla ut morbi. Lorem mollis aliquam ut porttitor leo a diam. Sit amet justo donec enim. Sed odio morbi quis commodo odio aenean. Arcu non sodales neque sodales ut etiam sit amet nisl. Sit amet facilisis magna etiam tempor orci eu lobortis elementum.
+
+        <br>
+
+      Justo laoreet sit amet cursus sit amet dictum. Vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique. Volutpat diam ut venenatis tellus in. Enim tortor at auctor urna nunc id cursus metus. Cursus euismod quis viverra nibh cras pulvinar mattis. Adipiscing enim eu turpis egestas pretium aenean. Nunc mattis enim ut tellus. Massa ultricies mi quis hendrerit dolor magna eget. Scelerisque eu ultrices vitae auctor eu. Donec massa sapien faucibus et molestie ac. Massa eget egestas purus viverra accumsan in. Pellentesque habitant morbi tristique senectus et netus et malesuada. Eu sem integer vitae justo eget magna fermentum iaculis. Porta non pulvinar neque laoreet. Laoreet sit amet cursus sit amet dictum sit amet justo. Nunc consequat interdum varius sit amet mattis vulputate enim nulla. Amet aliquam id diam maecenas. Lacus viverra vitae congue eu.</p>
+        </div>
+    </main>
   </body>
 </html>

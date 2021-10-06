@@ -36,7 +36,7 @@ const createTweetElement = function(obj) {
 
   //footer
   const $footer = $(`<footer></footer>`);
-  const $timeCreated = $(`<p>${obj["created_at"]}</p>`);
+  const $timeCreated = $(`<p>${timeago.format(obj["created_at"])}</p>`);
   const $otherAvatars = $(`<div><i class="fas fa-flag"></i><i class="fas fa-heart"></i><i class="fas fa-retweet"></i></div>`)
 
   //build tweet header

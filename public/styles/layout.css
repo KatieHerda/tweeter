@@ -54,9 +54,41 @@ body {
  */
 
  .container {
-  display: flex;
-  justify-content: center;
   background-color: #f4f1ec;
-  margin: 5%;
   width: 90%;
+  margin-top: 320px;
+ }
+
+ section {
+   margin-bottom: 10px;
+ }
+
+ .tweet-container {
+  justify-content: center;
+  border: 3px solid #545149;
+  padding: 5px;
+  margin-top: 5px;
+ }
+
+  .tweet-container header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 10px;
+ }
+
+ .tweet-container:hover {
+  box-shadow: 9px 9px 0px 1px hsl(226, 43%, 44%);
+ }
+
+ .tweet-container footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 3px solid #545149;
+  margin: 0px 10px;
+  font-size: 18px;
+ }
+
+ .tweet-container footer i:hover {
+  color: hsl(226, 43%, 44%);
+  cursor: pointer;
  }

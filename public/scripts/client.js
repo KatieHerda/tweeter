@@ -7,21 +7,43 @@
 //
 
 //initial
-const tweetData = {
-  "user": {
-    "name": "Newton",
-    "avatars": "https://i.imgur.com/73hZDYK.png",
-    "handle": "@SirIsaac"
+const tweetData = [
+  {
+    "user": {
+      "name": "Newton",
+      "avatars": "https://i.imgur.com/73hZDYK.png",
+      "handle": "@SirIsaac"
+    },
+    "content": {
+      "text": "If I have seen further it is by standing on the shoulders of giants"
+    },
+    "created_at": 1633385636094
   },
-  "content": {
-    "text": "If I have seen further it is by standing on the shoulders of giants"
-  },
-  "created_at": 1633375562279
-};
+  {
+    "user": {
+      "name": "Descartes",
+      "avatars": "https://i.imgur.com/nlhLi3I.png",
+      "handle": "@rd"
+    },
+    "content": {
+      "text": "Je pense , donc je suis"
+    },
+    "created_at": 1633472036094
+  }
+]
+
+$(document).ready(function() {
+  
+  function renderTweets(array) {
+    array.forEach(element => {
+      console.log(element)
+      $(`#tweet-list`).append(createTweetElement(element));
+    });
+  };
+
 
 //Client side JavaScript
 //takes in tweet object and returns a tweet <article> element containing the entire HTML structure of the tweet.
-
 const createTweetElement = function(obj) {
   //create individual variables that we will use to build tweet
   //header
@@ -60,10 +82,6 @@ const createTweetElement = function(obj) {
   return $tweet;
 };
 
-$(document).ready(function() {
- const $newTweet = createTweetElement(tweetData);
+renderTweets(tweetData);
 
- $('#tweet-list').append($newTweet);
-
- return $newTweet;
 });

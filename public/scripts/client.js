@@ -25,23 +25,22 @@ const tweetData = {
 const createTweetElement = function(obj) {
   //create individual variables that we will use to build tweet
   //header
-  const $tweet = $(`<article class="tweet">Hello world</article>`);
-  const $header = $(`<header class="tweet-header"></header>`)
-  const $name = $(`<p class="name">${obj.user.name}</p>`);
-  const $avatar = $(`<img src="${obj.user.avatars}">`);
-  const $handle = $(`<p class="handle">${obj.user.handle}</p>`);
+  const $tweet = $(`<article class="tweet-container"></article>`);
+  const $header = $(`<header></header>`)
+  const $avatarName = $(`<p><img src="${obj.user.avatars}">${obj.user.name}</p>`);
+  const $handle = $(`<p>${obj.user.handle}</p>`);
 
   //main
-  const $main = $(`<div><p></p></div>`)
-  const $text = $(`<p class="text">${obj.content.text}</p>`);
+  const $main = $(`<div class="text-content"><p></p></div>`)
+  const $text = $(`<p>${obj.content.text}</p>`);
 
   //footer
-  const $footer = $(`<footer class="footer"></footer>`);
-  const $timeCreated = $(`<p class="time-created">${obj["created_at"]}</p>`);
+  const $footer = $(`<footer></footer>`);
+  const $timeCreated = $(`<p>${obj["created_at"]}</p>`);
+  const $otherAvatars = $(`<div><i class="fas fa-flag"></i><i class="fas fa-heart"></i><i class="fas fa-retweet"></i></div>`)
 
   //build tweet header
-  $header.append($name);
-  $header.append($avatar);
+  $header.append($avatarName);
   $header.append($handle);
   
   //build tweet main
@@ -49,6 +48,9 @@ const createTweetElement = function(obj) {
 
   //build tweet footer
   $footer.append($timeCreated);
+  $footer.append($otherAvatars);
+  
+  //need to grab flag, heart, retweet from font awesome
 
   //complete build by appending header, footer, and main to $tweet
   $tweet.append($header);

@@ -40,7 +40,7 @@
 
   <body>
     <!-- Top nav bar (fixed) -->
-    <nav>
+    <nav id="nav-bar">
         <a id="tweet-logo" href="tweeter-logo">tweeter</a>
         <div class="new-tweet-right">
           <a href="write-tweet"><b>Write</b> a new tweet</a>
@@ -64,19 +64,20 @@
 
         <section class="new-tweet">
           <h2>Compose Tweet</h2>
-          <form method="POST" action="/tweets">
-            <label for="tweet-text">What are you humming about?</label>
-            <textarea name="text" id="tweet-text"></textarea>
+          <form method="POST" action="/tweets" id="form">
+            <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+
             <div class="counter-section">
               <button type="submit">Tweet</button>
               <output name="counter" class="counter" for="tweet-text">140</output>
             </div>
             <article class="tweet-container">
+              
               <p>Tweet Container</p>
-              <footer>10 Days ago 
-                <i class="fas fa-flag"></i>
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-retweet"></i>
+              <footer>
+                <p>10 days ago</p><i class="fas fa-flag"></i>
+                  <i class="fas fa-heart"></i>
+                  <i class="fas fa-retweet"></i>
               </footer>
             </article>
             

@@ -1,4 +1,4 @@
-nav {
+#nav-bar {
   display: flex;
   align-items:center;
   flex-direction: row;

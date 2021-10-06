@@ -59,6 +59,11 @@ body {
   margin-top: 320px;
  }
 
+ .text-content {
+   display: flex;
+   justify-content: center;
+ }
+
  section {
    margin-bottom: 10px;
  }

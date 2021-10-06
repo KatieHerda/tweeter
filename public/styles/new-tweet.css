@@ -35,4 +35,8 @@ button {
   height: 1.5em;
 }
 
+#tweet-text:focus {
+  outline: none;
+}
+
 

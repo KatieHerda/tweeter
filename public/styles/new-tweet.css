@@ -4,10 +4,6 @@ section .new-tweet {
 
 }
 
-h3 {
-  margin: inherit;
-}
-
 .new-tweet #form {
   display: flex;
   flex-direction: column;

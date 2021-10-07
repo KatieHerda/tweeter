@@ -44,6 +44,20 @@ body {
    margin-bottom: 10px;
  }
 
+ /* Error messages */
+ .error-messages {
+   text-align: center;
+   font-family: 'Source Sans Pro', sans-serif;
+   font-size: 25px;
+   color: red;
+   border: dotted red;
+   margin-top: 20px;
+ }
+
+ .error-messages p {
+   margin: 10px;
+ }
+
 
  .tweet-container {
   justify-content: center;

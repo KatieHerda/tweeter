@@ -64,6 +64,15 @@
 
   <!-- Page-specific (main) content here -->
   <main class="container">
+
+    <!-- Error Section -->
+    <section class="error-messages">
+      <div>
+        <p><i class="fas fa-exclamation-circle"></i>This is an error message</p>
+      </div>
+    </section>
+    
+    <!-- New Tweet Section -->
     <section class="new-tweet">
       <h3>Compose Tweet</h3>
       <form method="POST" action="/tweets" id="form">
@@ -74,10 +83,8 @@
           <button type="submit">Tweet</button>
           <output name="counter" class="counter" for="tweet-text">140</output>
         </div>
-
       </form>
     </section>
-
       <!-- Tweet List Section -->
     <section id="tweet-list">
     </section>

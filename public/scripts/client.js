@@ -6,33 +6,7 @@
 
 //
 
-//initial
-const tweetData = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1633385636094
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1633472036094
-  }
-]
-
-
+$(document).ready(function() {
   
   function renderTweets(array) {
     array.forEach(element => {
@@ -82,8 +56,13 @@ const createTweetElement = function(obj) {
   return $tweet;
 };
 
+function loadTweets() {
+  $.ajax('/tweets', { method: 'GET'})
+    .then(function (res) {
+      renderTweets(res);
+     });
+}
 
-$(document).ready(function() {
   //add event listener for sumbit event
   $("#form").on("submit", function(event) {
 
@@ -93,28 +72,18 @@ $(document).ready(function() {
     //serialize tweet data
     const tweet = $(`#form`).serialize();
 
-    const url = "/tweets"
-
     //create AJAX POST request that sends form data to server
     $.ajax({
-      url: url,
+      url: "/tweets",
       method: "POST",
       data: tweet
+ 
+    }).then((res) => {
+      loadTweets();
+      //clear form somehow
     })
-    .then((result) => {
-      //loadTweets Function will come in here
+    .catch((err) => {
+      console.log('there was an error', err)
     })
-
-    //request to tweets route, method get
-    //render tweets 
-    //.then data
-    // call 
-
   })
-
-
-
-
-renderTweets(tweetData);
-
 });

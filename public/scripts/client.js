@@ -101,8 +101,9 @@ $(document).ready(function() {
       })
         .then((res) => {
           loadTweet();
-          let tweetForm = document.getElementById('tweet-text');
-          tweetForm.value = '';
+          //reset input value to empty string and counter to 0.
+          $('#tweet-text').val('');
+          $('output.counter').val(140);
         })
         .catch((err) => {
           alert('there was an error', err);

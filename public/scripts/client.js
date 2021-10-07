@@ -32,7 +32,7 @@ const tweetData = [
   }
 ]
 
-$(document).ready(function() {
+
   
   function renderTweets(array) {
     array.forEach(element => {
@@ -81,6 +81,39 @@ const createTweetElement = function(obj) {
 
   return $tweet;
 };
+
+
+$(document).ready(function() {
+  //add event listener for sumbit event
+  $("#form").on("submit", function(event) {
+
+    //prevent default behavior of submit event data
+    event.preventDefault();
+    
+    //serialize tweet data
+    const tweet = $(`#form`).serialize();
+
+    const url = "/tweets"
+
+    //create AJAX POST request that sends form data to server
+    $.ajax({
+      url: url,
+      method: "POST",
+      data: tweet
+    })
+    .then((result) => {
+      //loadTweets Function will come in here
+    })
+
+    //request to tweets route, method get
+    //render tweets 
+    //.then data
+    // call 
+
+  })
+
+
+
 
 renderTweets(tweetData);
 

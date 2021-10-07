@@ -11,7 +11,7 @@ $(document).ready(function() {
   function renderTweets(array) {
     array.forEach(element => {
       console.log(element)
-      $(`#tweet-list`).append(createTweetElement(element));
+      $(`#tweet-list`).prepend(createTweetElement(element));
     });
   };
 
@@ -72,18 +72,28 @@ function loadTweets() {
     //serialize tweet data
     const tweet = $(`#form`).serialize();
 
-    //create AJAX POST request that sends form data to server
-    $.ajax({
-      url: "/tweets",
-      method: "POST",
-      data: tweet
- 
-    }).then((res) => {
-      loadTweets();
-      //clear form somehow
-    })
-    .catch((err) => {
-      console.log('there was an error', err)
-    })
+    console.log(tweet)
+    //Error if tweet content too long / empty - if so, form should not be cleared
+    //add 5 characters from 'text='
+    if (tweet.length > 145) {
+      alert('Please do not exceed 140 characters per tweet.')
+    } else if (tweet === 'text:') {
+      alert('Please enter a tweet before hitting tweet button.')
+    } else {
+      //happy path: proceed AJAX POST request that sends form data to server
+      $.ajax({
+        url: "/tweets",
+        method: "POST",
+        data: tweet
+      })
+      .then((res) => {
+        loadTweets();
+        let tweetForm = document.getElementById('tweet-text');
+        tweetForm.value = '';
+      })
+      .catch((err) => {
+        alert('there was an error', err)
+      });
+    }
   })
 });

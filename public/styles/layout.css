@@ -73,6 +73,10 @@ body {
     margin: 0px 10px;
  }
 
+.handle {
+   color: hsl(226, 43%, 44%);
+ }
+
  .tweet-container:hover {
   box-shadow: 9px 9px 0px 1px hsl(226, 43%, 44%);
  }

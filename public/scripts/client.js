@@ -30,7 +30,7 @@ $(document).ready(function() {
     const $tweet = $(`<article class="tweet-container"></article>`);
     const $header = $(`<header></header>`);
     const $avatarName = $(`<p><img src="${obj.user.avatars}">${obj.user.name}</p>`);
-    const $handle = $(`<p>${obj.user.handle}</p>`);
+    const $handle = $(`<p class ="handle"><b>${obj.user.handle}</b></p>`);
 
     //main
     const $main = $(`<div class="text-content"><p></p></div>`);
@@ -74,6 +74,10 @@ $(document).ready(function() {
       .then(function(res) {
         renderTweets([res[res.length - 1]]);
       });
+  }
+
+  function errorMessage() {
+
   }
 
   //add event listener for sumbit event

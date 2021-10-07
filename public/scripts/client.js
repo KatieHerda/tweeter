@@ -15,6 +15,12 @@ $(document).ready(function() {
     });
   }
 
+  //Function that escapes unsafe characters
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
   //Client side JavaScript
   //takes in tweet object and returns a tweet <article> element containing the entire HTML structure of the tweet.
@@ -28,7 +34,7 @@ $(document).ready(function() {
 
     //main
     const $main = $(`<div class="text-content"><p></p></div>`);
-    const $text = $(`<p>${obj.content.text}</p>`);
+    const $text = $(`<p>${escape(obj.content.text)}</p>`);
 
     //footer
     const $footer = $(`<footer></footer>`);

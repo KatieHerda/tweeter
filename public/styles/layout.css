@@ -41,13 +41,14 @@ body {
  }
 
  /* Error messages */
- section.error-messages {
+ .error-messages {
    display: flex;
    justify-content: center;
    font-family: 'Source Sans Pro', sans-serif;
    font-size: 22px;
    color: red;
    margin: 0px;
+   height: 50px;
  }
 
  .error-messages p {
@@ -56,6 +57,7 @@ body {
    margin-top: 20px;
    margin-bottom: 0px;
    padding: 8px;
+   height: 40px;
  }
 
 /* List of tweets */
@@ -71,6 +73,26 @@ body {
     display: flex;
     justify-content: space-between;
     margin: 0px 10px;
+    height: 100px;
+ }
+
+ .tweet-container img {
+   height: 60%;
+ }
+
+ .users-name {
+  color: #545149;
+ }
+
+ .tweet-container header {
+  display: flex;
+  align-items: center;
+ }
+
+ p.avatar-name {
+   display: flex;
+   align-items: center;
+   height: 100px;
  }
 
 .handle {

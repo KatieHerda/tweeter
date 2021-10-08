@@ -28,7 +28,7 @@ $(document).ready(function() {
   //header
     const $tweet = $(`<article class="tweet-container"></article>`);
     const $header = $(`<header></header>`);
-    const $avatarName = $(`<p><img src="${obj.user.avatars}">${obj.user.name}</p>`);
+    const $avatarName = $(`<p class="avatar-name"><img src="${obj.user.avatars}"><span class="users-name">${obj.user.name}</span></p>`);
     const $handle = $(`<p class ="handle"><b>${obj.user.handle}</b></p>`);
 
     //main
@@ -83,22 +83,23 @@ $(document).ready(function() {
 
   //add event listener for sumbit event
   $("#form").on("submit", function(event) {
-
+    const $errorSection = $('.error-messages');
+    
     //prevent default behavior of submit event data
     event.preventDefault();
     
     //serialize tweet data
     const tweet = $(`#form`).serialize();
 
-  
     //Error if tweet content too long / empty - if so, form should not be cleared
-    
-    const $errorSection = $('.error-messages');
+  
     //add 5 to 140 characters from 'text='
     if (tweet.length > 145) {
+      $errorSection.empty();
       let message = errorMessage('Please do not exceed 140 characters per tweet.');
       $errorSection.prepend(message);
     } else if (tweet === 'text=') {
+      $errorSection.empty();
       let message = errorMessage('Please enter a tweet before hitting tweet button.');
       $errorSection.prepend(message);
     } else {
@@ -109,13 +110,14 @@ $(document).ready(function() {
         data: tweet
       })
         .then((res) => {
-
           loadTweet();
           //reset input value to empty string and counter to 0.
           $('#tweet-text').val('');
           $('output.counter').val(140);
+          $errorSection.empty();
         })
         .catch((err) => {
+          $errorSection.empty();
           let message = errorMessage('Whoops, there was an error ', err);
           $errorSection.prepend(message);
         });

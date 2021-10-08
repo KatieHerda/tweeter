@@ -38,7 +38,7 @@ $(document).ready(function() {
     //footer
     const $footer = $(`<footer></footer>`);
     const $timeCreated = $(`<p>${timeago.format(obj["created_at"])}</p>`);
-    const $otherAvatars = $(`<div><i class="fas fa-flag"></i><i class="fas fa-heart"></i><i class="fas fa-retweet"></i></div>`);
+    const $otherAvatars = $(`<div class="icons"><i class="fas fa-flag"></i><i class="fas fa-heart"></i><i class="fas fa-retweet"></i></div>`);
 
     //build tweet header
     $header.append($avatarName);

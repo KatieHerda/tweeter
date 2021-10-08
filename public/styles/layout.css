@@ -115,3 +115,36 @@ body {
   color: hsl(226, 43%, 44%);
   cursor: pointer;
  }
+ 
+ .icons {
+   display: flex;
+  justify-content: space-between;
+  align-items: center;
+   width: 75px;
+ }
+
+ .wrapper-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+ }
+
+
+ /* Desktop styles */
+@media only screen and (min-width: 1024px) {
+  .wrapper-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-direction: row;
+    margin-top: 175px;
+  }
+
+  .container {
+    width: 30em;
+    margin-top: 0;
+  }
+}

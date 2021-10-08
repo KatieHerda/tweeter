@@ -32,3 +32,11 @@ a {
 .fa-angle-double-down {
   color: red;
 }
+
+ /* Desktop styles */
+ @media only screen and (min-width: 1024px) {
+  #nav-bar {
+    background-color: hsl(226, 43%, 44%);
+    background-image: none;
+  }
+}

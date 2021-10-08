@@ -15,7 +15,7 @@ $(document).ready(function() {
   }
 
   //Function that escapes unsafe characters
-  const escape = function (str) {
+  const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
@@ -77,7 +77,7 @@ $(document).ready(function() {
 
   //Function that returns error message HTML
   function errorMessage(errorText) {
-   const $error = $(`<p><i class="fas fa-exclamation-circle"></i>${errorText}</p>`);
+    const $error = $(`<p><i class="fas fa-exclamation-circle"></i>${errorText}</p>`);
     return $error;
   }
 

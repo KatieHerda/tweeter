@@ -14,14 +14,6 @@ $(document).ready(function() {
     });
   }
 
-  //Function that returns error message HTML
-  function errorMessage(errorText) {
-   const $error = $(`<section class="error-messages">
-    <p><i class="fas fa-exclamation-circle"></i>${errorText}</p>
-    </section>
-    `);
-    return $error;
-  }
   //Function that escapes unsafe characters
   const escape = function (str) {
     let div = document.createElement("div");
@@ -40,7 +32,7 @@ $(document).ready(function() {
     const $handle = $(`<p class ="handle"><b>${obj.user.handle}</b></p>`);
 
     //main
-    const $main = $(`<div class="text-content"><p></p></div>`);
+    const $errorSection = $(`<div class="text-content"><p></p></div>`);
     const $text = $(`<p>${escape(obj.content.text)}</p>`);
 
     //footer
@@ -53,7 +45,7 @@ $(document).ready(function() {
     $header.append($handle);
   
     //build tweet main
-    $main.append($text);
+    $errorSection.append($text);
 
     //build tweet footer
     $footer.append($timeCreated);
@@ -61,7 +53,7 @@ $(document).ready(function() {
 
     //complete build by appending header, footer, and main to $tweet
     $tweet.append($header);
-    $tweet.append($main);
+    $tweet.append($errorSection);
     $tweet.append($footer);
 
     return $tweet;
@@ -83,6 +75,12 @@ $(document).ready(function() {
       });
   }
 
+  //Function that returns error message HTML
+  function errorMessage(errorText) {
+   const $error = $(`<p><i class="fas fa-exclamation-circle"></i>${errorText}</p>`);
+    return $error;
+  }
+
   //add event listener for sumbit event
   $("#form").on("submit", function(event) {
 
@@ -95,14 +93,14 @@ $(document).ready(function() {
   
     //Error if tweet content too long / empty - if so, form should not be cleared
     
-    const $main = $('main.container');
+    const $errorSection = $('.error-messages');
     //add 5 to 140 characters from 'text='
     if (tweet.length > 145) {
       let message = errorMessage('Please do not exceed 140 characters per tweet.');
-      $main.prepend(message);
+      $errorSection.prepend(message);
     } else if (tweet === 'text=') {
       let message = errorMessage('Please enter a tweet before hitting tweet button.');
-      $main.prepend(message);
+      $errorSection.prepend(message);
     } else {
       //happy path: proceed AJAX POST request that sends form data to server
       $.ajax({
@@ -118,7 +116,7 @@ $(document).ready(function() {
         })
         .catch((err) => {
           let message = errorMessage('Whoops, there was an error ', err);
-          $main.prepend(message);
+          $errorSection.prepend(message);
         });
     }
   });

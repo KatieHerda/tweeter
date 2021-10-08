@@ -18,6 +18,11 @@ a {
   color: #FFFFFF;
 }
 
+p {
+  color: white;
+  margin-bottom: 5px;
+}
+
 #tweet-logo {
   font-family: "Bungee", cursive;
 }
@@ -27,6 +32,7 @@ a {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  
 }
 
 .fa-angle-double-down {

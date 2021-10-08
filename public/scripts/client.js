@@ -109,6 +109,7 @@ $(document).ready(function() {
         data: tweet
       })
         .then((res) => {
+
           loadTweet();
           //reset input value to empty string and counter to 0.
           $('#tweet-text').val('');

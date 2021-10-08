@@ -1,11 +1,4 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
-//
-
+// Client-side JS logic goes here
 $(document).ready(function() {
   //Function to render tweets into tweet list
   function renderTweets(array) {
@@ -24,7 +17,7 @@ $(document).ready(function() {
   //Client side JavaScript
   //takes in tweet object and returns a tweet <article> element containing the entire HTML structure of the tweet.
   function createTweetElement(obj) {
-  //create individual variables that we will use to build tweet
+  //Create individual variables that we will use to build tweet
   //header
     const $tweet = $(`<article class="tweet-container"></article>`);
     const $header = $(`<header></header>`);
@@ -92,7 +85,6 @@ $(document).ready(function() {
     const tweet = $(`#form`).serialize();
 
     //Error if tweet content too long / empty - if so, form should not be cleared
-  
     //add 5 to 140 characters from 'text='
     if (tweet.length > 145) {
       $errorSection.empty();

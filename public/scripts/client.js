@@ -10,11 +10,18 @@ $(document).ready(function() {
   //Function to render tweets into tweet list
   function renderTweets(array) {
     array.forEach(element => {
-      console.log(element);
       $(`#tweet-list`).prepend(createTweetElement(element));
     });
   }
 
+  //Function that returns error message HTML
+  function errorMessage(errorText) {
+   const $error = $(`<section class="error-messages">
+    <p><i class="fas fa-exclamation-circle"></i>${errorText}</p>
+    </section>
+    `);
+    return $error;
+  }
   //Function that escapes unsafe characters
   const escape = function (str) {
     let div = document.createElement("div");
@@ -76,10 +83,6 @@ $(document).ready(function() {
       });
   }
 
-  function errorMessage() {
-
-  }
-
   //add event listener for sumbit event
   $("#form").on("submit", function(event) {
 
@@ -89,13 +92,17 @@ $(document).ready(function() {
     //serialize tweet data
     const tweet = $(`#form`).serialize();
 
-    console.log(tweet);
+  
     //Error if tweet content too long / empty - if so, form should not be cleared
-    //add 5 characters from 'text:'
+    
+    const $main = $('main.container');
+    //add 5 to 140 characters from 'text='
     if (tweet.length > 145) {
-      alert('Please do not exceed 140 characters per tweet.');
-    } else if (tweet === 'text:') {
-      alert('Please enter a tweet before hitting tweet button.');
+      let message = errorMessage('Please do not exceed 140 characters per tweet.');
+      $main.prepend(message);
+    } else if (tweet === 'text=') {
+      let message = errorMessage('Please enter a tweet before hitting tweet button.');
+      $main.prepend(message);
     } else {
       //happy path: proceed AJAX POST request that sends form data to server
       $.ajax({
@@ -110,7 +117,8 @@ $(document).ready(function() {
           $('output.counter').val(140);
         })
         .catch((err) => {
-          alert('there was an error', err);
+          let message = errorMessage('Whoops, there was an error ', err);
+          $main.prepend(message);
         });
     }
   });

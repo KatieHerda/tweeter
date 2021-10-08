@@ -1,8 +1,4 @@
-
-
 $(document).ready(function() {
-  console.log("I have loaded");
-
   //function to increase counter with input text and inverse with deleted text
   $('#tweet-text').on("input", function() {
     const maxCharacters = 140;
@@ -17,7 +13,6 @@ $(document).ready(function() {
     const $counter = $(this).parent().children('.counter-section').children('.counter');
     
     $counter.text(leftOverCharacters);
-
     
     if (leftOverCharacters < 0) {
       $counter.css("color", "red");
